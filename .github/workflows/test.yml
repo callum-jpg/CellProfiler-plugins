@@ -49,6 +49,7 @@ jobs:
 
   test_basic_plugins:
     needs: build_cellprofiler
+    steps:
       - name: Install basic CellProfiler plugins (require )
         run: |
           pip install -e .
@@ -64,6 +65,7 @@ jobs:
 
   test_cellpose_plugin:
     needs: build_cellprofiler
+    steps:
       - name: Run cellpose plugin pipeline
         run: |
           pip install -e .[cellpose]
@@ -72,6 +74,7 @@ jobs:
           
   test_stardist_plugin:
     needs: build_cellprofiler
+    steps:
       - name: Run stardist plugin pipeline
         run: |
           pip uninstall -y cellpose torch
